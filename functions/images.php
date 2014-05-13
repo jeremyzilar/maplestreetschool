@@ -3,22 +3,22 @@
 // http://www.studiograsshopper.ch/web-development/wordpress-featured-images-add_image_size-resizing-and-cropping-demo/
 
 // This sets the 3 different DEFAULT WordPress sizes to the 3 sizes that best fit in the posts and pages
-update_option('thumbnail_size_w', 140);
-update_option('thumbnail_size_h', 140);
-update_option('thumbnail_crop', 1);
-
-update_option('medium_size_w', 220);
-update_option('medium_size_h', 9999);
-update_option('medium_crop', 0);
-
-update_option('large_size_w', 700);
-update_option('large_size_h', 9999);
-update_option('large_crop', 0);
+// update_option('thumbnail_size_w', 140);
+// update_option('thumbnail_size_h', 140);
+// update_option('thumbnail_crop', 1);
+//
+// update_option('medium_size_w', 220);
+// update_option('medium_size_h', 9999);
+// update_option('medium_crop', 0);
+//
+// update_option('large_size_w', 700);
+// update_option('large_size_h', 9999);
+// update_option('large_crop', 0);
 
 // Add Featured Images
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
-  set_post_thumbnail_size( 220, 220 ); // default Post Thumbnail dimensions   
+  set_post_thumbnail_size( 220, 220 ); // default Post Thumbnail dimensions
 }
 
 // Here we are adding additional Image sizes to the theme
@@ -28,9 +28,6 @@ add_image_size('w140', 140, 140, true ); //140 pixels wide x 140 pixels tall
 add_image_size('w220', 220, 9999, false); //220 pixels wide (and unlimited height)
 // add_image_size('w300', 300, 9999, false); //300 pixels wide (and unlimited height) //Hiding
 add_image_size('circle300', 300, 300, true); //300 pixels wide (and unlimited height)
-// add_image_size('w380', 380, 9999, false); //380 pixels wide (and unlimited height) //Hiding
-// add_image_size('w460', 460, 9999, false); //460 pixels wide (and unlimited height) //Hiding
-// add_image_size('w540', 540, 9999, false); //540 pixels wide (and unlimited height)
 add_image_size('w620', 620, 9999, false); //620 pixels wide (and unlimited height)
 add_image_size('w700', 700, 9999, false); //700 pixels wide (and unlimited height)
 add_image_size('w780', 780, 9999, false); //780 pixels wide (and unlimited height)
@@ -42,10 +39,10 @@ add_image_size('w940', 940, 9999, false); //940 pixels wide (and unlimited heigh
 // Custom Image Sizes in Media Uploader
 // http://sumtips.com/2011/12/custom-image-sizes-in-wordpress.html
 function custom_image_sizes($sizes) {
-  unset( $sizes['thumbnail']);
-  unset( $sizes['medium']);
-  unset( $sizes['large']);
-  unset( $sizes['full'] ); // removes full size image
+  // unset( $sizes['thumbnail']);
+  // unset( $sizes['medium']);
+  // unset( $sizes['large']);
+  // unset( $sizes['full'] ); // removes full size image
   $myimgsizes = array(
     // "w30" => __("w30"),
     "w60" => __("w60"),
@@ -100,7 +97,7 @@ function myAttachmentFields($form_fields, $post) {
       $filename = basename( $post->guid );
       $attachment_id = $post->ID;
     }
-    
+
     return $form_fields;
 }
 // Hook on after priority 10, because WordPress adds a couple of filters to the same hook - added accepted args(2)
@@ -110,14 +107,14 @@ add_filter('attachment_fields_to_edit', 'myAttachmentFields', 11, 2 );
 
 
 // Add Photographer Name and URL fields to media uploader
-// 
+//
 // @param $form_fields array, fields to include in attachment form
 // @param $post object, attachment record in database
 // @return $form_fields, modified form fields
 
- 
+
 function be_attachment_field_credit( $form_fields, $post ) {
-	
+
 	$form_fields['be-photographer-name'] = array(
 		'label' => 'Photographer Name',
 		'input' => 'text',
@@ -139,7 +136,7 @@ add_filter( 'attachment_fields_to_edit', 'be_attachment_field_credit', 10, 2 );
 
 
 // Save values of Photographer Name and URL in media uploader
-// 
+//
 // @param $post array, the post data for database
 // @param $attachment array, attachment fields from $_POST form
 // @return $post array, modified post data
@@ -175,14 +172,14 @@ function new_img_shortcode_filter($val, $attr, $content = null) {
 		'caption' => '',
 		'src' => ''
 	), $attr));
-  
+
   $find = 'attachment_';
   $cust_id = str_replace($find, '', $id);
   $post_custom = get_post_custom($cust_id);
   // print_r($content);
   // $isrc = $src;
 
-  
+
 	if ( 1 > (int) $width || empty($caption) )
 		return $val;
 
@@ -217,10 +214,10 @@ add_filter('img_caption_shortcode', 'new_img_shortcode_filter',10,3);
 
 //deactivate WordPress function
 remove_shortcode('gallery', 'gallery_shortcode');
- 
+
 //activate own function
 add_shortcode('gallery', 'mss_gallery_shortcode');
- 
+
 //the own renamed function
 function mss_gallery_shortcode($attr) {
 	global $post, $wp_locale;
@@ -295,14 +292,14 @@ function mss_gallery_shortcode($attr) {
   // $output = $selector;
 	$i = 0;
 	foreach ( $attachments as $id => $attachment ) {
-		if ($i == 0) { 
+		if ($i == 0) {
 		  $active = 'active';
 		} else{
 		  $active = '';
 		}
-		
+
 		$link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_image($id, $size, false, false) : wp_get_attachment_image($id, $size, true, false);
-    
+
 		$output .= "<{$imagetag} class='item ".$active."'>";
 		$output .= "<{$linktag}>$link</{$linktag}>";
     if ( $captiontag && trim($attachment->post_excerpt) ) {
@@ -320,11 +317,11 @@ function mss_gallery_shortcode($attr) {
 	$output .= "<a class='carousel-control left' href='#{$selector}' data-slide='prev'>&lsaquo;</a>
     <a class='carousel-control right' href='#{$selector}' data-slide='next'>&rsaquo;</a>\n";
 	$output .= "</div>";
-	
-	
+
+
 
 	return $output;
-} 
+}
 
 
 
