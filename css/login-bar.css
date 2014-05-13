@@ -1,0 +1,142 @@
+.login-bar *{
+  font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
+}
+
+.login-bar{ /*when logged out*/
+  margin-top:-228px;
+}
+
+.login-bar .navbar-inner{
+  background:#F95353;
+}
+
+.login-bar .container{
+}
+
+.login-bar li{
+  margin:0;
+}
+.login-bar .nav > li > a {
+  padding:2px 8px 3px;
+  color:#f7f7f7;
+  font-size:13px;
+  line-height:19px;
+  font-weight:500;
+}
+
+.login-bar p{
+  font-size:13px;
+  line-height:19px;
+}
+
+
+.login-bar .icon-user{
+  margin-top:1px;
+  opacity: 0.4;
+  -moz-opacity: 0.4;
+  filter:alpha(opacity=40);
+}
+.login-bar .nav{
+  clear:both;
+  display:block;
+}
+.logged-in .login-bar .nav{
+  clear:none;
+}
+
+.login-bar .nav li{
+  color:#fff;
+  float:right;
+}
+
+.login-bar .nav li:hover{
+  background:rgba(255,255,255,0.15);
+}
+
+.login span{ /*the close button X*/
+  font-size:21px;
+  font-weight:bold;
+  position:relative;
+  top:1px;
+  line-height:14px;
+}
+
+.login-bar .hide{
+  background:rgba(255,255,255,0.15);
+}
+.login-bar .nav li .hide:hover{
+  background:rgba(255,255,255,0.2);
+}
+
+/*The login form*/
+
+#loginform{
+  margin:15px 0;
+  padding:0 0 0 10px;
+  float:right;
+}
+#loginform label,
+#loginform .login-forgot a{
+  color:#fff;
+}
+#loginform p{
+  margin-bottom:5px;
+}
+
+#loginform .login-remember label,
+#loginform .login-remember input{
+  display:inline;
+}
+
+.login-submit,
+.login-forgot{
+  float:left;
+}
+
+.login-submit{
+  margin-top:5px;
+}
+.login-forgot{
+  margin-left:10px;
+  position:relative;
+  top:14px;
+  font-style: italic;
+}
+
+
+#wp-submit{
+  margin-top:5px;
+  margin-bottom:0;
+  height:28px;
+}
+
+
+.logged-in .login-bar{ /*when logged in*/
+  margin-top:0;
+}
+
+.logged-in .login-bar .nav li{
+  clear:none;
+  float:left;
+}
+
+
+
+
+/*- - - - - - - - */
+
+.family-handbook .login-bar .navbar-inner{
+ background:#0892E3; 
+}
+
+.login-bar .committee-nav{
+  clear: none;
+  display:inline;
+}
+
+.login-bar .committee-nav li{
+  float:left;
+}
+
+
+

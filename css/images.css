@@ -1,0 +1,145 @@
+.photo{
+  margin-top:8px;
+  margin-bottom:20px;
+  font-weight:300;
+  font-size:14px;
+  line-height:18px;
+  color:#999;
+}
+
+.mssphotos .photo{
+  width:220px;
+  text-align: center;
+}
+
+
+
+
+
+.caption{
+  margin:2px 1px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:300;
+  font-size:12px;
+  line-height:14px;
+  color:#999;
+}
+
+
+
+
+.w30{}
+.w60{}
+.w140{}
+
+
+.wp-caption{
+  margin-bottom:10px;
+}
+
+
+.w30,
+.w60,
+.w140,
+.w220,
+.w300,
+.w380,
+.w460{
+  margin-right:14px;
+}
+
+.w30{
+  margin-right:8px;
+  margin-bottom:0;
+  float:left;
+  width:30px;
+}
+.w60{
+  margin-right:24px;
+  margin-bottom:0;
+  float:left;
+  width:60px;
+}
+.w140{
+  margin-right:15px;
+  margin-bottom:0;
+  float:left;
+  width:140px;
+}
+.w220{
+  margin:8px 0 8px 14px;
+  float:right;
+  width:220px;
+}
+.w300{
+  margin:8px 0 8px 14px;
+  float:right;
+  width:300px;
+}
+.w380{ /*disabled for posts but still available in template*/
+  float:left;
+  width:380px;
+}
+.w460{
+  margin:8px auto 20px auto;
+  width:460px;
+}
+.w540{
+  width:540px;
+}
+.w620{
+  width:620px;
+}
+.w700{
+  width:700px;
+}
+
+
+
+/*Circle Images*/
+
+.circle span{
+  display:inline-block;
+  border: 3px solid rgba(13, 148, 249, 1);
+  border: 5px solid rgba(242, 242, 242, 1);
+  border: 3px solid rgba(246, 111, 102, 1);
+  border: 2px solid rgba(43,56,66,.3);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 3px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);
+     -moz-box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 3px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);
+          box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 3px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);
+}
+
+.circle60 span{
+  border-width: 3px;
+  border: 2px solid rgba(43,56,66,1);
+  -webkit-border-radius: 35px;
+     -moz-border-radius: 35px;
+          border-radius: 35px;
+}
+
+
+.circle140 span{
+  -webkit-border-radius: 75px;
+     -moz-border-radius: 75px;
+          border-radius: 75px;
+}
+.circle{
+  margin-left:0;
+}
+.circle span{
+  -webkit-border-radius:155px;
+     -moz-border-radius:155px;
+          border-radius:155px;
+}
+
+.circle .caption{
+  text-align: center;
+}
+
+.w60 .caption{display:none} /*because it doesnt need a caption*/
+
+
+.modal {
+  margin-left:-350px;
+  width:700px;
+}

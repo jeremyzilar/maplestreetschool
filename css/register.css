@@ -1,0 +1,191 @@
+#registerBox{
+  padding:0;
+}
+
+#registerBox .help{
+  margin:10px 0 0 0;
+  padding:10px 40px 0 40px;
+  font-size:12px;
+  color:#999;
+  clear:both;
+  border-top:1px #eee solid;
+}
+#registerBox .well .row{
+  margin:0;
+}
+
+#registerBox #steps,
+#registerBox form{
+  display:none;
+}
+
+#registerBox form{
+  margin-top:25px;
+  margin-bottom:0;
+}
+
+#steps {}
+  
+#steps li{
+  width:100px;
+  float:left;
+  font-weight:300;
+  font-size:14px;
+  line-height:18px;
+  list-style-type: none;
+  text-align: center;
+  color:#888;
+}
+#steps li span{
+  margin:5px auto;
+  font-weight:500;
+  font-size:24px;
+  line-height:36px;
+  color:#999;
+  width:35px;
+  display:block;
+  border: 2px solid #888;
+/*  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);*/
+/*     -moz-box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);*/
+/*          box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 2px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);*/
+  -webkit-border-radius: 35px;
+     -moz-border-radius: 35px;
+          border-radius: 35px;
+}
+#steps .current span{
+  color:#159EFF;
+  border: 2px solid rgba(13, 148, 249, 1);
+}
+
+.stepper{
+  margin:10px 0;
+}
+.stepper .next{
+  float:right;
+}
+
+
+legend{
+  margin-bottom:0;
+  font-weight:300;
+  font-size:28px;
+  line-height:48px;
+}
+
+#memberPicker{
+  display:none;
+}
+#memberPicker .controls{
+  margin:0;
+}
+#memberPicker .control-label{
+  display:none;
+}
+#memberPicker .radio{
+  margin:0;
+  padding:10px 16px 13px 30px;
+  color:#555;
+}
+
+
+#memberPicker label.control-label{
+  margin-top:14px;
+  font-size:18px;
+}
+
+#memberPicker .radio .checkbox{
+  padding-left:25px;
+}
+#memberPicker .radio input{
+  margin-top:6px;
+  margin-left:-20px;
+}
+
+
+#memberPicker p{
+  margin:0;
+}
+
+
+
+
+
+#adduser{
+  margin-top:25px;
+  clear:both;
+  display:none;
+}
+
+
+
+#adduser .control-group{
+  clear:both;
+}
+.info{
+  margin:10px 0;
+  padding:10px 15px;
+  background-color:rgba(13,148,249,.1);
+  border: 1px solid rgba(13,148,249,.1);
+}
+.info p{
+  margin:0;
+  font-size:12px;
+  line-height:14px;
+  color:#888;
+}
+
+.password{
+  display:none;
+}
+.logged-in .password{
+  display:block;
+}
+
+
+.message{
+  margin:10px 0;
+  float:left;
+}
+
+
+/*Profile*/
+#profile {
+  margin: 15px 0;
+  padding:10px 0 ;
+}
+#profile h4{
+  margin:10px 0;
+}
+#profile .help-block{
+  margin:0 0 10px 0;
+}
+
+#profile .p_info{
+  margin:40px 0 0 0;
+}
+#profile .p_name{
+  margin:0 0 10px 0;
+  font-size: 36px;
+}
+#profile label{
+  margin:0;
+}
+#profile #p_passwd{
+  font-style: italic;
+  background:#FFFCC8;
+}
+#profile p{
+  margin:0;
+}
+
+
+#thanks{
+  display:none;
+}
+#thanks h2{
+  font-weight:300;
+}
+
+#receipt_email{
+  font-weight: 600;
+}

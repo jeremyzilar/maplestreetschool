@@ -1,0 +1,36 @@
+#mssQuotes{
+  font-family: "rooney-web", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+}
+.mssbox{
+  float:left;
+  font-weight:300;
+  font-size:14px;
+  line-height:18px;
+}
+.mssbox label{
+  margin:0 0 5px 3px;
+  font-weight:300;
+  font-size:14px;
+  line-height:18px;
+  display:block;
+}
+
+#quote_name input{
+  width:40%;
+}
+#quote_age input{
+  width:20%;
+}
+#quote_class input{
+  width:40%;
+}
+
+#mssQuotes .mssbox textarea{
+  padding:10px 20px;
+  font-weight:800;
+  font-size:48px;
+  line-height:60px;
+  width:98%;
+  height:10em;
+  color:#AD4C3F;
+}
