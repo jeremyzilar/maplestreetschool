@@ -18,8 +18,8 @@ Template Name: Homepage
 					<div class="active item">
       		  <img src="<?php bloginfo('template_url'); ?>/img/slides/admissions.jpg" width="940" height="400" alt="Admissions 2014-15">
       		  <div class="carousel-caption">
-              <h4>Admissions are Open!</h4>
-              <p>Now accepting applications for the 2014-15 School Year | <a href="http://maplestreetschool.org/admissions" title="Admissions |  Maple Street School | Brooklyn's Cooperative Pre-school">Apply Now!</a></p>
+              <h4>Maple Street School</h4>
+              <p></p>
             </div>
       		</div>
      
