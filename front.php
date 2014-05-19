@@ -16,10 +16,10 @@ Template Name: Homepage
     		<div class="carousel-inner">
     		  
 					<div class="active item">
-      		  <img src="<?php bloginfo('template_url'); ?>/img/slides/admissions.jpg" width="940" height="400" alt="Admissions 2014-15">
+      		  <img src="<?php bloginfo('template_url'); ?>/img/slides/bite-of-brooklyn.jpg" width="940" height="400" alt="Bite of Brooklyn 2014">
       		  <div class="carousel-caption">
-              <h4>Maple Street School</h4>
-              <p></p>
+              <h4><a href="http://maplestreetschool.org/bite-of-brooklyn/">Bite of Brooklyn</a></h4>
+              <p>Our 4th Annual Food, Wine, Music and Auction Event | <a href="http://maplestreetschool.org/bite-of-brooklyn/">Learn more</a></p>
             </div>
       		</div>
      
