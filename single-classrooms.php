@@ -35,7 +35,10 @@ $_title = strtolower(get_the_title());
                     Questions? E-mail <a href="mailto:&#x63;&#x6F;&#x6D;&#x6D;&#x75;&#x6E;&#x69;&#x63;&#x61;&#x74;&#x69;&#x6F;&#x6E;&#x40;&#x6D;&#x61;&#x70;&#x6C;&#x65;&#x73;&#x74;&#x72;&#x65;&#x65;&#x74;&#x73;&#x63;&#x68;&#x6F;&#x6F;&#x6C;&#x2E;&#x6F;&#x72;&#x67;">communication@maplestreetschool.org</a>
                   </div>
 
-                  <iframe width='920' height='700' frameborder='0' src='<?php echo $classroom_text; ?>&widget=true'></iframe>
+                  <!-- This is the code that gets dropped in via the admin -->
+                  <?php echo $classroom_text; ?>
+
+
                 <?php } else { ?>
                   <div class="alert alert-info">
                     <p>The roster has not been linked with this page.</p>
