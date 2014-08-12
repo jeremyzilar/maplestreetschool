@@ -3,8 +3,6 @@
 <?php
 $classroom_text = get_post_meta($post->ID, 'class_roster', true);
 $_title = strtolower(get_the_title());
-<iframe src="https://docs.google.com/spreadsheets/d/18bpbRxcZs8CkY9rMalOFEVlBju_ser3-1G_-iQkvp94/pubhtml
-<iframe src="https://docs.google.com/spreadsheets/d/18bpbRxcZs8CkY9rMalOFEVlBju_ser3-1G_-iQkvp94/pubhtml?widget=true&amp;headers=false"></iframe>
 ?>
 
 <section id="classrooms">
