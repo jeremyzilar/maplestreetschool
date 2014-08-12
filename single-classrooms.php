@@ -35,7 +35,7 @@ $_title = strtolower(get_the_title());
                   </div>
 
                   <!-- This is the code that gets dropped in via the admin -->
-                  <iframe src="<?php echo $classroom_text; ?>?widget=true&amp;headers=false"></iframe>
+                  <iframe style="width:920px;width:650px;" src="<?php echo $classroom_text; ?>?widget=true&amp;headers=false"></iframe>
                   
 
 
