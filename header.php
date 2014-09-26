@@ -22,49 +22,24 @@
   <meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/mss_logo_b.png"/>
   <link href="<?php bloginfo('template_url'); ?>/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   
-  <!-- CSS -->
-  <?php $v = '790'; ?>
-  <?php $b = 'css'; ?>
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/<?php echo $b; ?>/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/type.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/navigation.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/login-bar.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/inbox.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/footer.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/register.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/datepicker.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/images.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/classifieds.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/front-page.css?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap-image-gallery.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
-
-  <!-- <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/grid.css" type="text/css" media="screen" title="no title" charset="utf-8"> -->
-  
-  
 
 	
   <!-- Fonts vis Typekit -->
   <script type="text/javascript" src="http://use.typekit.com/tbw7hzq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	
-	
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 
-  <!-- Le fav and touch icons -->
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+  <?php wp_head(); ?>
 
 </head>
+
   <!-- Good things start here ! -->
   
+
 <?php $slug = get_the_slug(); ?>
 <body <?php body_class($slug); ?> data-spy="scroll" data-target="#sidenav">
+
+
 
   <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8RQ8V"
@@ -75,6 +50,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N8RQ8V');</script>
 <!-- End Google Tag Manager -->
+
+
 
   <?php include 'includes/login-bar.php'; ?>
   

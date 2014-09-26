@@ -57,53 +57,7 @@
 
 
   
-  
-
-	<!-- Le javascript
-	================================================== -->
-	<script type="text/javascript" charset="utf-8">var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';</script>
-
-  <!-- jQuery & friends -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/jquery.timeago.js" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/jquery-color.js" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/masonry.js" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/jquery-scrolltofixed-min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/jquery.cycle.all.min.js" type="text/javascript" charset="utf-8"></script>
-		
-	<!-- Form Validation -->
-  <script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/forms/jquery.form.js"></script>
-  <script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/forms/jquery.validate.js"></script>
-  <script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/forms/additional-methods.js"></script>
-  
-  <!-- AJAX -->
-  <script src="<?php bloginfo('template_url'); ?>/js/forms/checkemail.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/forms/submit.js"></script>
-  
-	<!-- Bootstrap JS -->
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-transition.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-alert.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-modal.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-dropdown.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-scrollspy.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-tab.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-tooltip.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-popover.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-button.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-collapse.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-carousel.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-typeahead.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php bloginfo('template_url'); ?>/js/bootstrap/bootstrap-typeahead.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/jquery.imagesloaded.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/bootstrap-image-gallery.js" type="text/javascript" charset="utf-8"></script>
-	
-	
-  <!-- Custom JS -->
-  <script src="<?php bloginfo('template_url'); ?>/js/login.js?=<?php echo $v; ?>" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/register.js?=<?php echo $v; ?>" type="text/javascript" charset="utf-8"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/custom.js?=<?php echo $v; ?>" type="text/javascript" charset="utf-8"></script>
+	<?php wp_footer(); ?>
 	
 	
   <!-- Google Analytics -->

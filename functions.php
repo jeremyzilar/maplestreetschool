@@ -1,18 +1,25 @@
 <?php
-include 'functions/common_arrays.php';
-include 'functions/nav_menus.php';
-include 'functions/pages.php';
-include 'functions/dropdown_menus.php';
-include 'functions/login_form.php';
-include 'functions/images.php';
-include 'functions/notes.php';
-include 'functions/classifieds.php';
-include 'functions/classrooms.php';
-include 'functions/quotes.php';
-include 'functions/roles.php';
-include 'functions/class-blog.php';
-include 'functions/coop-docs.php';
-include 'functions/user_profiles.php';
+include_once 'functions/wp_enqueue_script.php';
+include_once 'functions/common_arrays.php';
+include_once 'functions/nav_menus.php';
+include_once 'functions/pages.php';
+include_once 'functions/dropdown_menus.php';
+include_once 'functions/login_form.php';
+include_once 'functions/images.php';
+include_once 'functions/notes.php';
+include_once 'functions/classifieds.php';
+include_once 'functions/classrooms.php';
+include_once 'functions/quotes.php';
+include_once 'functions/roles.php';
+include_once 'functions/class-blog.php';
+include_once 'functions/coop-docs.php';
+include_once 'functions/user_profiles.php';
+
+
+// Hide WP Admin Bar
+add_filter('show_admin_bar', '__return_false');
+
+
 
 $template_url = get_bloginfo('template_url');
 $blog_url = get_bloginfo('url');
