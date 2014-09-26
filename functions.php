@@ -12,6 +12,7 @@ include 'functions/quotes.php';
 include 'functions/roles.php';
 include 'functions/class-blog.php';
 include 'functions/coop-docs.php';
+include 'functions/user_profiles.php';
 
 $template_url = get_bloginfo('template_url');
 $blog_url = get_bloginfo('url');

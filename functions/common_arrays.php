@@ -20,6 +20,15 @@ function get_weekdays(){
   return $weekdays;
 }
 
+function get_day_types(){
+  $day_types = array(
+    'full'=>'Full',
+    'am'=>'AM',
+    'pm'=>'PM'
+  );
+  return $day_types;
+}
+
 function get_committees(){
   $committees = array(
     'fundraising'=>'Fundraising',

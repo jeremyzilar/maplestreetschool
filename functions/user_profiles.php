@@ -46,7 +46,13 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="locality">City</label></th>
 			<td>
-				<input type="text" name="locality" id="locality" value="<?php echo esc_attr( get_the_author_meta( 'locality', $user->ID ) ); ?>" class="regular-text" /><br />
+				<?php 
+				$locality = esc_attr( get_the_author_meta( 'locality', $user->ID ) );
+				if (empty($locality)) {
+					$locality = 'Brooklyn';
+				}
+				?>
+				<input type="text" name="locality" id="locality" value="<?php echo $locality; ?>" class="regular-text" /><br />
 				<span class="description">Brooklyn, most likely</span>
 			</td>
 		</tr>
@@ -185,6 +191,19 @@ function my_show_extra_profile_fields( $user ) { ?>
       </td>			
     </tr>
 
+    <!-- Day Types -->
+    <tr>
+      <th><label for="days">Day Types</label></th>
+      <td>
+        <?php $day_types = get_the_author_meta('day_types', $user->ID ); ?>
+        <ul>
+          <?php foreach (get_day_types() as $key => $value): ?>
+            <li><input value="<?php echo $key; ?>" name="day_types[]" <?php if (is_array($day_types)) { if (in_array($key, $day_types)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
+		      <?php endforeach ?>
+        </ul>
+      </td>			
+    </tr>
+
 		
 		<!-- Birthday -->
 	  <tr>
@@ -201,23 +220,6 @@ function my_show_extra_profile_fields( $user ) { ?>
 	
 	<h3>Personal Info</h3>
 	<table class="form-table">
-	  <!-- Profession -->
-	  <tr>
-			<th><label for="profession">What do you do for a living?</label></th>
-			<td>
-				<input type="text" name="profession" id="profession" value="<?php echo esc_attr( get_the_author_meta( 'profession', $user->ID ) ); ?>" class="regular-text" /><br />
-				<span class="description">Architect, Chef, Accountant, Mother</span>
-			</td>
-		</tr>
-		
-		<!-- Future Profession -->
-	  <tr>
-			<th><label for="future_profession">What do you want to be when you grow up?</label></th>
-			<td>
-				<input type="text" name="future_profession" id="future_profession" value="<?php echo esc_attr( get_the_author_meta( 'future_profession', $user->ID ) ); ?>" class="regular-text" /><br />
-				<span class="description">Movie Director, Arms Dealer, Banker</span>
-			</td>
-		</tr>
 
     <!-- Twitter -->
 		<tr>
@@ -239,8 +241,13 @@ function my_show_extra_profile_fields( $user ) { ?>
 	</table>
 <?php }
 
+
+
+
 add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
 add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+
+
 
 function my_save_extra_profile_fields( $user_id ) {
 
@@ -265,6 +272,7 @@ function my_save_extra_profile_fields( $user_id ) {
 	
 	update_user_meta( $user_id, 'class', $_POST['class'] );
 	update_user_meta( $user_id, 'days', $_POST['days'] );
+	update_user_meta( $user_id, 'day_types', $_POST['day_types'] );
 	update_user_meta( $user_id, 'birthday', $_POST['birthday'] );
 	
 	update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
