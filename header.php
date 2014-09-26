@@ -39,15 +39,6 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap-image-gallery.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?=<?php echo $v; ?>" type="text/css" media="screen" title="no title" charset="utf-8">
 
-  <!-- GRID in Dev environment -->
-  <?php
-  $host = parse_url($domain, PHP_URL_HOST);
-  if($host == 'maplestreetschool.org') {
-    echo '<!-- no grid -->';
-  } else {
-    echo '<!-- yes grid -->';
-  }
-  ?>
   <!-- <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/grid.css" type="text/css" media="screen" title="no title" charset="utf-8"> -->
   
   

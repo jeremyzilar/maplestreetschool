@@ -17,14 +17,14 @@ class dropdown_walker extends Walker_Nav_Menu
 {
 	var $link_counter=0;
 
-	function start_lvl(&$output, $depth) {
+	function start_lvl(&$output, $depth = 0, $args = array() ) {
 		global $link_counter;
 		$class = 'dropdown-menu';
 		$indent = str_repeat("\t",$depth);
 		$output .= "\n$indent<ul class=\"$class\" id=\"sub-".$link_counter."\">\n";
 	}
 
-  function start_el(&$output, $item, $depth, $args) {
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
     global $wp_query;
     global $link_counter;
        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -81,7 +81,7 @@ class Pill_Walker extends Walker_Nav_Menu
 	 * @param  array $args    Additional strings.
 	 * @return void
 	 */
-	public function start_el( &$output, $item, $depth, $args )
+	public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
 	{
     // $class_names = $value = '';
     // $classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -120,7 +120,7 @@ class Pill_Walker extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function start_lvl( &$output )
+	public function start_lvl(&$output, $depth = 0, $args = array())
 	{
 		$output .= '<ul class="sub-menu">';
 	}
@@ -131,7 +131,7 @@ class Pill_Walker extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function end_lvl( &$output )
+	public function end_lvl(&$output, $depth = 0, $args = array())
 	{
 		$output .= '</ul>';
 	}
@@ -142,7 +142,7 @@ class Pill_Walker extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	function end_el( &$output )
+	function end_el(&$output, $item, $depth = 0, $args = array())
 	{
 		$output .= '</li>';
 	}

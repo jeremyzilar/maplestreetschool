@@ -135,8 +135,8 @@ function pagemenu($menu_name, $template){
 // AJAX Calls
 
 // Check E-mail
-add_action( 'wp_ajax_nopriv_' . $_REQUEST['action'], $_REQUEST['action']);
-add_action( 'wp_ajax_' . $_POST['action'], $_POST['action']);
+// add_action( 'wp_ajax_nopriv_' . $_REQUEST['action'], $_REQUEST['action']);
+// add_action( 'wp_ajax_' . $_POST['action'], $_POST['action']);
 
 function chk_email(){  
   if (email_exists($_POST['email'])){
@@ -201,7 +201,7 @@ add_filter('the_category','the_category_filter', 10, 2);
 
 
 function customAdminStyles() {
-  $url = get_settings('siteurl');
+  $url = get_option('siteurl');
   // $url = bloginfo('template_url').'/css/admin.css';
   $admin = $url . '/wp-content/themes/mss/css/admin.css';
   echo '
