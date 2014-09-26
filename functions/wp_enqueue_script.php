@@ -61,7 +61,7 @@ function scripts_styles() {
 add_action( 'wp_enqueue_scripts', 'scripts_styles' );
 
 function register_admin_scripts() {
-	wp_enqueue_script('admin', get_template_directory_uri() . '/js/admin.js', array( 'jquery-ui-datepicker' ), $q, true );
+	wp_enqueue_script('admin', get_template_directory_uri() . '/js/admin.js', array( 'jquery-ui-datepicker' ), true );
   wp_enqueue_style( 'jquery-ui-datepicker', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/smoothness/jquery-ui.css' );
 } // end register_admin_scripts
 
