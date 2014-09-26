@@ -86,20 +86,6 @@ function my_show_extra_profile_fields( $user ) { ?>
 	<h3>MSS</h3>
 	<table class="form-table">
 
-	  <!-- Member Type -->
-    <tr>
-      <th><label for="member_type">Member Type</label></th>
-      <td>
-        <select name="member_type" id="member_type">
-          <option value="current_parent">Current Parent</option>
-          <option value="alumni">Friend of Maple Street</option>
-          <option value="current_student">Current Student</option>
-          <option value="staff">Staff</option>
-  		  </select>
-      </td>
-    </tr>
-    
-    
     <!-- Committees -->
     <tr>
       <th><label for="committees">Work Committee</label></th>
@@ -169,7 +155,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="class">Class</label></th>
 			<td>
-			  <select name="class" id="member_type">
+			  <select name="class" id="classroom">
 			    <?php 
 			    $class = get_the_author_meta('class', $user->ID );
 			    $classes = get_classes();
@@ -269,7 +255,6 @@ function my_save_extra_profile_fields( $user_id ) {
 	update_user_meta( $user_id, 'region', $_POST['region'] );
 	update_user_meta( $user_id, 'postal_code', $_POST['postal_code'] );
 	
-	update_user_meta( $user_id, 'member_type', $_POST['member_type'] );
 	update_user_meta( $user_id, 'committee', $_POST['committee'] );
 	update_user_meta( $user_id, 'partner', $_POST['partner'] );
 	update_user_meta( $user_id, 'child1', $_POST['child1'] );
