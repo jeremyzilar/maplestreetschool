@@ -62,9 +62,16 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<th><label for="region">State</label></th>
 			<td>
         <select id="region" name="region">
-		      <?php foreach (get_regions() as $key => $value): ?>
-		        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-		      <?php endforeach ?>
+		      <?php 
+		      	$region = get_the_author_meta('region', $user->ID );
+			    	$regions = get_regions();
+		      	foreach (get_regions() as $key => $value): 
+	      			if ($key == $region) { ?>
+		    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+		    			<?php } else { ?>
+		    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+		    			<?php } ?>
+		      	<?php endforeach ?>
         </select>
 
 				<span class="description">Hopefully you live in NY</span>
