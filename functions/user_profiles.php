@@ -203,7 +203,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<th><label for="birthday">Birthday</label></th>
 			<td>
 				<input type="text" name="birthday" id="birthday" value="<?php echo esc_attr( get_the_author_meta( 'birthday', $user->ID ) ); ?>" class="regular-text" /><br />
-				<span class="description">mm-dd-yyyy</span>
+				<span class="description">mm/dd/yyyy</span>
 			</td>
 		</tr>
 		
