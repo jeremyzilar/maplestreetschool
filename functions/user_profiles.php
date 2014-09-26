@@ -170,9 +170,16 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<th><label for="class">Class</label></th>
 			<td>
 			  <select name="class" id="member_type">
-			    <?php $class = get_the_author_meta('class', $user->ID ); ?>
-			    <?php foreach (get_classes() as $key => $value): ?>
-		        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			    <?php 
+			    $class = get_the_author_meta('class', $user->ID );
+			    $classes = get_classes();
+			    foreach ($classes as $key => $value):
+			    	if ($key == $class) { ?>
+			    		<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			    	<?php } else { ?>
+			    		<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			    	<?php }
+			    ?>
 		      <?php endforeach ?>
   		  </select>
 			</td>

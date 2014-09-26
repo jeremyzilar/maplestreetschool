@@ -1,13 +1,25 @@
 <?php
 
 function get_classes(){
-  $mssclasses = array(
-    'stars'=>'Stars',
-    'roots'=>'Roots',
-    'waves'=>'Waves'
+  $mssclasses = array();
+  $args=array(
+    'post_type' => 'classrooms',
+    'post_status' => 'publish',
+    'posts_per_page' => -1
   );
+  $my_query = null;
+  $my_query = new WP_Query($args);
+  if( $my_query->have_posts() ) {
+    global $post;
+    while ($my_query->have_posts()) : $my_query->the_post();
+    $mssclasses[$post->post_name] = get_the_title();
+    endwhile;
+  }
+  wp_reset_query();  // Restore global post data stomped by the_post().
+
   return $mssclasses;
 }
+get_classes();
 
 function get_weekdays(){
   $weekdays = array(
