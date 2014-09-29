@@ -4,7 +4,7 @@
 
 function check_for_submenu($classes, $item) {
     global $wpdb;
-    $has_children = $wpdb->get_var("SELECT COUNT(meta_id) FROM mss_postmeta WHERE meta_key='_menu_item_menu_item_parent' AND meta_value='".$item->ID."'");
+    $has_children = $wpdb->get_var("SELECT COUNT(meta_id) FROM wp_postmeta WHERE meta_key='_menu_item_menu_item_parent' AND meta_value='".$item->ID."'");
     if ($has_children > 0) array_push($classes,'dropdown');
     return $classes;
 }
