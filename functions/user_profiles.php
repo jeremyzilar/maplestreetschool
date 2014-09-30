@@ -115,7 +115,21 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="partner">Spouse/Partner</label></th>
 			<td>
-				<input type="text" name="partner" id="partner" value="<?php echo esc_attr( get_the_author_meta('partner', $user->ID ) ); ?>" class="regular-text" /><br />
+				<select id="partner" name="partner">
+					<option value="">- - - - -</option>
+		      <?php 
+		      global $blogusers;
+	      	$partner = get_the_author_meta('partner', $user->ID );
+	      	foreach ($blogusers as $user): 
+	      		$name = $user->display_name;
+      			if ($name == $partner) { ?>
+	    				<option selected value="<?php echo $name; ?>"><?php echo $name; ?></option>
+	    			<?php } else { ?>
+	    				<option value="<?php echo $name; ?>"><?php echo $name; ?></option>
+	    			<?php } ?>
+	      	<?php endforeach ?>
+        </select>
+				<br />
 				<span class="description">partner</span>
 			</td>
 		</tr>

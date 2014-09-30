@@ -178,6 +178,27 @@ function get_current_user_role() {
 
 
 
+$blogusers_args = array(
+  'blog_id'      => $GLOBALS['blog_id'],
+  'role'         => '',
+  'meta_key'     => '',
+  'meta_value'   => '',
+  'meta_compare' => '',
+  'meta_query'   => array(),
+  'include'      => array(),
+  'exclude'      => array(),
+  'orderby'      => '',
+  'order'        => 'ASC',
+  'offset'       => '',
+  'search'       => '',
+  'number'       => '',
+  'count_total'  => false,
+  'fields'       => 'all',
+  'who'          => ''
+);
+
+$blogusers = get_users($blogusers_args);
+
 
 
 // Remove the PRIVATE: from the headlines of Private posts
