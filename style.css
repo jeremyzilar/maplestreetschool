@@ -697,8 +697,30 @@ section {
   display:none;
 }
 
-.parent{
+.family{
+  margin-bottom:25px; 
   padding-top: 20px;
   padding-bottom: 20px;
   background:#fff;
+}
+.family h6{
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.family h3{
+  margin-bottom: 5px;
+  font-weight: 800;
+}
+.family .parent{
+  margin:15px 0;
+}
+.family .parent h5{
+  margin:0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.family .parent p{
+  margin:0 0 3px 0;
+  font-size: 14px;
+  line-height: 18px;
 }

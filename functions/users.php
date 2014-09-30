@@ -1,6 +1,20 @@
 <?php
 
 
+// Get the 'parent' by ID of the 'student' post_type
+function get_user_by_meta_value($student_id){
+  $args = array(
+    'meta_key' => 'child1',
+    'meta_value' => $student_id,
+    'meta_compare' => '='
+  );
+  $user = get_users( $args );
+  return $user;
+}
+
+
+
+
 // Add a column to the User Table
 function test_modify_user_table( $column ) {
     $column['children'] = 'Children';
@@ -38,4 +52,4 @@ EOF;
     }
     return $return;
 }
-add_filter( 'manage_users_custom_column', 'test_modify_user_table_row', 10, 6 );
+add_filter( 'manage_users_custom_column', 'test_modify_user_table_row', 10, 3 );

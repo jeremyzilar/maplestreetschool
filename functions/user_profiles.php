@@ -10,7 +10,7 @@ add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
 
 function my_show_extra_profile_fields( $user ) { ?>
 	
-	<?php $uid = $uid; ?>
+	<?php $uid = $user->ID; ?>
 
   <h3>Phone</h3>
 	<table class="form-table">
@@ -137,6 +137,29 @@ function my_show_extra_profile_fields( $user ) { ?>
 			</td>
 		</tr>
 
+<?php 
+function get_students($key, $uid){
+	$meta = get_the_author_meta($key, $uid );
+  $student_args = array(
+	  'post_type' => 'student',
+	  'post_status' => 'publish',
+	  'posts_per_page' => -1
+	);
+	$student_query = null;
+	$student_query = new WP_Query($student_args);
+	if( $student_query->have_posts() ) {
+	  while ($student_query->have_posts()) : $student_query->the_post(); 
+	  	$student_id = get_the_ID();
+	    if ($student_id == $meta) { ?>
+				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+			<?php } else { ?>
+				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+			<?php } 
+	  endwhile;
+	}
+	wp_reset_query();
+}
+?>
 		
 		<!-- Child 1 -->
 	  <tr>
@@ -145,25 +168,8 @@ function my_show_extra_profile_fields( $user ) { ?>
 				<select id="child1" name="child1">
 					<option value="">- - - - -</option>
 		      <?php
-		      $child1 = get_the_author_meta('child1', $uid );
-		      $student_args = array(
-					  'post_type' => 'student',
-					  'post_status' => 'publish',
-					  'posts_per_page' => -1
-					);
-					$student_query = null;
-					$student_query = new WP_Query($student_args);
-					if( $student_query->have_posts() ) {
-					  while ($student_query->have_posts()) : $student_query->the_post(); 
-					  	$student_id = get_the_ID();
-					    if ($student_id == $child1) { ?>
-		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } else { ?>
-		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } 
-					  endwhile;
-					}
-					wp_reset_query();  // Restore global post data stomped by the_post().
+		      	$key = 'child1';
+		      	get_students($key, $uid);
 					?>
         </select><br />
 				<span class="description">Child</span>
@@ -177,25 +183,8 @@ function my_show_extra_profile_fields( $user ) { ?>
 				<select id="child2" name="child2">
 					<option value="">- - - - -</option>
 		      <?php
-		      $child2 = get_the_author_meta('child2', $uid );
-		      $student_args = array(
-					  'post_type' => 'student',
-					  'post_status' => 'publish',
-					  'posts_per_page' => -1
-					);
-					$student_query = null;
-					$student_query = new WP_Query($student_args);
-					if( $student_query->have_posts() ) {
-					  while ($student_query->have_posts()) : $student_query->the_post(); 
-					  	$student_id = get_the_ID();
-					    if ($student_id == $child2) { ?>
-		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } else { ?>
-		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } 
-					  endwhile;
-					}
-					wp_reset_query();  // Restore global post data stomped by the_post().
+		      	$key = 'child2';
+		      	get_students($key, $uid);
 					?>
         </select><br />
 				<span class="description">Child</span>
@@ -209,25 +198,8 @@ function my_show_extra_profile_fields( $user ) { ?>
 				<select id="child3" name="child3">
 					<option value="">- - - - -</option>
 		      <?php
-		      $child3 = get_the_author_meta('child3', $uid );
-		      $student_args = array(
-					  'post_type' => 'student',
-					  'post_status' => 'publish',
-					  'posts_per_page' => -1
-					);
-					$student_query = null;
-					$student_query = new WP_Query($student_args);
-					if( $student_query->have_posts() ) {
-					  while ($student_query->have_posts()) : $student_query->the_post(); 
-					  	$student_id = get_the_ID();
-					    if ($student_id == $child3) { ?>
-		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } else { ?>
-		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } 
-					  endwhile;
-					}
-					wp_reset_query();  // Restore global post data stomped by the_post().
+		      	$key = 'child3';
+		      	get_students($key, $uid);
 					?>
         </select><br />
 				<span class="description">Child</span>
@@ -241,25 +213,8 @@ function my_show_extra_profile_fields( $user ) { ?>
 				<select id="child4" name="child4">
 					<option value="">- - - - -</option>
 		      <?php
-		      $child4 = get_the_author_meta('child4', $uid );
-		      $student_args = array(
-					  'post_type' => 'student',
-					  'post_status' => 'publish',
-					  'posts_per_page' => -1
-					);
-					$student_query = null;
-					$student_query = new WP_Query($student_args);
-					if( $student_query->have_posts() ) {
-					  while ($student_query->have_posts()) : $student_query->the_post(); 
-					  	$student_id = get_the_ID();
-					    if ($student_id == $child4) { ?>
-		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } else { ?>
-		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
-		    			<?php } 
-					  endwhile;
-					}
-					wp_reset_query();  // Restore global post data stomped by the_post().
+		      	$key = 'child4';
+		      	get_students($key, $uid);
 					?>
         </select><br />
 				<span class="description">Child</span>
