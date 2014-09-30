@@ -196,14 +196,19 @@ function my_show_extra_profile_fields( $user ) { ?>
 
     <!-- Day Types -->
     <tr>
-      <th><label for="days">Day Types</label></th>
+      <th><label for="day_types">Day Types</label></th>
       <td>
-        <?php $day_types = get_the_author_meta('day_types', $user->ID ); ?>
-        <ul>
-          <?php foreach (get_day_types() as $key => $value): ?>
-            <li><input value="<?php echo $key; ?>" name="day_types[]" <?php if (is_array($day_types)) { if (in_array($key, $day_types)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
-		      <?php endforeach ?>
-        </ul>
+      	<select id="day_types" name="day_types">
+		      <?php 
+	      	$day_type = get_the_author_meta('day_types', $user->ID );
+	      	foreach (get_day_types() as $key => $value): 
+      			if ($key == $day_type) { ?>
+	    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    			<?php } else { ?>
+	    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    			<?php } ?>
+	      	<?php endforeach ?>
+        </select>
       </td>			
     </tr>
 
