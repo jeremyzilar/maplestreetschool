@@ -104,7 +104,7 @@ function my_show_extra_profile_fields( $user ) { ?>
       			if ($key == $committee) { ?>
 	    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
 	    			<?php } else { ?>
-	    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    				<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
 	    			<?php } ?>
 	      	<?php endforeach ?>
         </select>
@@ -203,9 +203,9 @@ function my_show_extra_profile_fields( $user ) { ?>
 	      	$day_type = get_the_author_meta('day_types', $user->ID );
 	      	foreach (get_day_types() as $key => $value): 
       			if ($key == $day_type) { ?>
-	    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    				<option selected value="<?php echo $value; ?>"><?php echo $value; ?></option>
 	    			<?php } else { ?>
-	    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    				<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
 	    			<?php } ?>
 	      	<?php endforeach ?>
         </select>
