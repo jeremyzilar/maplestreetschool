@@ -21,6 +21,8 @@ add_filter('show_admin_bar', '__return_false');
 
 
 
+
+
 $template_url = get_bloginfo('template_url');
 $blog_url = get_bloginfo('url');
 
@@ -256,3 +258,23 @@ if ( !function_exists('wp_new_user_notification') ) {
   }
 }
 
+add_role('parent', 'Current Parent', array(
+  'read' => 1,
+  'level_0' => 1,
+  'read_private_pages' => 1,
+  'read_private_posts' => 1,
+));
+
+add_role('alumni', 'Alumni', array(
+  'read' => 1,
+  'level_0' => 1,
+  'read_private_pages' => 1,
+  'read_private_posts' => 1,
+));
+
+add_role('teacher', 'Teacher', array(
+  'read' => 1,
+  'level_0' => 1,
+  'read_private_pages' => 1,
+  'read_private_posts' => 1,
+));
