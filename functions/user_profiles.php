@@ -9,6 +9,8 @@ add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
 
 function my_show_extra_profile_fields( $user ) { ?>
+	
+	<?php $uid = $uid; ?>
 
   <h3>Phone</h3>
 	<table class="form-table">
@@ -16,7 +18,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="tel">Primary Phone #</label></th>
 			<td>
-				<input type="text" name="tel" id="tel" value="<?php echo esc_attr( get_the_author_meta( 'tel', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="tel" id="tel" value="<?php echo esc_attr( get_the_author_meta( 'tel', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description"> e.g. 718-555-1234</span>
 			</td>
 		</tr>
@@ -24,7 +26,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 		<tr>
 			<th><label for="wktel">Work Phone #</label></th>
 			<td>
-				<input type="text" name="wktel" id="wktel" value="<?php echo esc_attr( get_the_author_meta( 'wktel', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="wktel" id="wktel" value="<?php echo esc_attr( get_the_author_meta( 'wktel', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description"> e.g. 718-555-1234</span>
 			</td>
 		</tr>
@@ -37,7 +39,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="street_address">Street Address</label></th>
 			<td>
-				<input type="text" name="street_address" id="street_address" value="<?php echo esc_attr( get_the_author_meta( 'street_address', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="street_address" id="street_address" value="<?php echo esc_attr( get_the_author_meta( 'street_address', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description">Please include apt # 125 Ocean #4A</span>
 			</td>
 		</tr>
@@ -47,7 +49,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<th><label for="locality">City</label></th>
 			<td>
 				<?php 
-				$locality = esc_attr( get_the_author_meta( 'locality', $user->ID ) );
+				$locality = esc_attr( get_the_author_meta( 'locality', $uid ) );
 				if (empty($locality)) {
 					$locality = 'Brooklyn';
 				}
@@ -63,7 +65,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<td>
         <select id="region" name="region">
 		      <?php 
-		      	$region = get_the_author_meta('region', $user->ID );
+		      	$region = get_the_author_meta('region', $uid );
 			    	$regions = get_regions();
 		      	foreach (get_regions() as $key => $value): 
 	      			if ($key == $region) { ?>
@@ -82,7 +84,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="postal_code">Postal Code</label></th>
 			<td>
-				<input type="text" name="postal_code" id="postal_code" value="<?php echo esc_attr( get_the_author_meta( 'postal_code', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="postal_code" id="postal_code" value="<?php echo esc_attr( get_the_author_meta( 'postal_code', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description">Zip Code</span>
 			</td>
 		</tr>
@@ -95,16 +97,17 @@ function my_show_extra_profile_fields( $user ) { ?>
 
     <!-- Committees -->
     <tr>
-      <th><label for="committees">Work Committee</label></th>
+      <th><label for="committee">Work Committee</label></th>
       <td>
         <select id="committee" name="committee">
 		      <?php 
-	      	$committee = get_the_author_meta('committee', $user->ID );
+	      	$committee = get_the_author_meta('committee', $uid );
+	      	print_r($committee);
 	      	foreach (get_committees() as $key => $value): 
       			if ($key == $committee) { ?>
 	    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
 	    			<?php } else { ?>
-	    				<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+	    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
 	    			<?php } ?>
 	      	<?php endforeach ?>
         </select>
@@ -119,7 +122,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 					<option value="">- - - - -</option>
 		      <?php 
 		      global $blogusers;
-	      	$partner = get_the_author_meta('partner', $user->ID );
+	      	$partner = get_the_author_meta('partner', $uid );
 	      	foreach ($blogusers as $user): 
 	      		$name = $user->display_name;
       			if ($name == $partner) { ?>
@@ -139,7 +142,30 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="child1">Child #1</label></th>
 			<td>
-				<input type="text" name="child1" id="child1" value="<?php echo esc_attr( get_the_author_meta('child1', $user->ID ) ); ?>" class="regular-text" /><br />
+				<select id="child1" name="child1">
+					<option value="">- - - - -</option>
+		      <?php
+		      $child1 = get_the_author_meta('child1', $uid );
+		      $student_args = array(
+					  'post_type' => 'student',
+					  'post_status' => 'publish',
+					  'posts_per_page' => -1
+					);
+					$student_query = null;
+					$student_query = new WP_Query($student_args);
+					if( $student_query->have_posts() ) {
+					  while ($student_query->have_posts()) : $student_query->the_post(); 
+					  	$student_id = get_the_ID();
+					    if ($student_id == $child1) { ?>
+		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } else { ?>
+		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } 
+					  endwhile;
+					}
+					wp_reset_query();  // Restore global post data stomped by the_post().
+					?>
+        </select><br />
 				<span class="description">Child</span>
 			</td>
 		</tr>
@@ -148,7 +174,30 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="child2">Child #2</label></th>
 			<td>
-				<input type="text" name="child2" id="child2" value="<?php echo esc_attr( get_the_author_meta('child2', $user->ID ) ); ?>" class="regular-text" /><br />
+				<select id="child2" name="child2">
+					<option value="">- - - - -</option>
+		      <?php
+		      $child2 = get_the_author_meta('child2', $uid );
+		      $student_args = array(
+					  'post_type' => 'student',
+					  'post_status' => 'publish',
+					  'posts_per_page' => -1
+					);
+					$student_query = null;
+					$student_query = new WP_Query($student_args);
+					if( $student_query->have_posts() ) {
+					  while ($student_query->have_posts()) : $student_query->the_post(); 
+					  	$student_id = get_the_ID();
+					    if ($student_id == $child2) { ?>
+		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } else { ?>
+		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } 
+					  endwhile;
+					}
+					wp_reset_query();  // Restore global post data stomped by the_post().
+					?>
+        </select><br />
 				<span class="description">Child</span>
 			</td>
 		</tr>
@@ -157,7 +206,30 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="child3">Child #3</label></th>
 			<td>
-				<input type="text" name="child3" id="child3" value="<?php echo esc_attr( get_the_author_meta('child3', $user->ID ) ); ?>" class="regular-text" /><br />
+				<select id="child3" name="child3">
+					<option value="">- - - - -</option>
+		      <?php
+		      $child3 = get_the_author_meta('child3', $uid );
+		      $student_args = array(
+					  'post_type' => 'student',
+					  'post_status' => 'publish',
+					  'posts_per_page' => -1
+					);
+					$student_query = null;
+					$student_query = new WP_Query($student_args);
+					if( $student_query->have_posts() ) {
+					  while ($student_query->have_posts()) : $student_query->the_post(); 
+					  	$student_id = get_the_ID();
+					    if ($student_id == $child3) { ?>
+		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } else { ?>
+		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } 
+					  endwhile;
+					}
+					wp_reset_query();  // Restore global post data stomped by the_post().
+					?>
+        </select><br />
 				<span class="description">Child</span>
 			</td>
 		</tr>
@@ -166,7 +238,30 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="child4">Child #4</label></th>
 			<td>
-				<input type="text" name="child4" id="child4" value="<?php echo esc_attr( get_the_author_meta('child4', $user->ID ) ); ?>" class="regular-text" /><br />
+				<select id="child4" name="child4">
+					<option value="">- - - - -</option>
+		      <?php
+		      $child4 = get_the_author_meta('child4', $uid );
+		      $student_args = array(
+					  'post_type' => 'student',
+					  'post_status' => 'publish',
+					  'posts_per_page' => -1
+					);
+					$student_query = null;
+					$student_query = new WP_Query($student_args);
+					if( $student_query->have_posts() ) {
+					  while ($student_query->have_posts()) : $student_query->the_post(); 
+					  	$student_id = get_the_ID();
+					    if ($student_id == $child4) { ?>
+		    				<option selected value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } else { ?>
+		    				<option value="<?php echo $student_id; ?>"><?php echo get_the_title(); ?></option>
+		    			<?php } 
+					  endwhile;
+					}
+					wp_reset_query();  // Restore global post data stomped by the_post().
+					?>
+        </select><br />
 				<span class="description">Child</span>
 			</td>
 		</tr>
@@ -181,7 +276,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 			<td>
 			  <select name="class" id="classroom">
 			    <?php 
-			    $class = get_the_author_meta('class', $user->ID );
+			    $class = get_the_author_meta('class', $uid );
 			    $classes = get_classes();
 			    foreach ($classes as $key => $value):
 			    	if ($key == $class) { ?>
@@ -199,7 +294,7 @@ function my_show_extra_profile_fields( $user ) { ?>
     <tr>
       <th><label for="days">Days</label></th>
       <td>
-        <?php $days = get_the_author_meta('days', $user->ID ); ?>
+        <?php $days = get_the_author_meta('days', $uid ); ?>
         <ul>
           <?php foreach (get_weekdays() as $key => $value): ?>
             <li><input value="<?php echo $key; ?>" name="days[]" <?php if (is_array($days)) { if (in_array($key, $days)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
@@ -214,7 +309,7 @@ function my_show_extra_profile_fields( $user ) { ?>
       <td>
       	<select id="day_types" name="day_types">
 		      <?php 
-	      	$day_type = get_the_author_meta('day_types', $user->ID );
+	      	$day_type = get_the_author_meta('day_types', $uid );
 	      	foreach (get_day_types() as $key => $value): 
       			if ($key == $day_type) { ?>
 	    				<option selected value="<?php echo $value; ?>"><?php echo $value; ?></option>
@@ -231,7 +326,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 	  <tr>
 			<th><label for="birthday">Birthday</label></th>
 			<td>
-				<input type="text" name="birthday" id="birthday" value="<?php echo esc_attr( get_the_author_meta( 'birthday', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="birthday" id="birthday" value="<?php echo esc_attr( get_the_author_meta( 'birthday', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description">mm/dd/yyyy</span>
 			</td>
 		</tr>
@@ -247,7 +342,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 		<tr>
 			<th><label for="twitter">Twitter</label></th>
 			<td>
-				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description">Please enter your <a href="http://twitter.com/" title="Twitter">Twitter</a> username.</span>
 			</td>
 		</tr>
@@ -256,7 +351,7 @@ function my_show_extra_profile_fields( $user ) { ?>
 		<tr>
 			<th><label for="facebook">Facebook</label></th>
 			<td>
-				<input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $uid ) ); ?>" class="regular-text" /><br />
 				<span class="description">Please enter your <a href="http://www.facebook.com/">Facebook</a> Profile URL.</span>
 			</td>
 		</tr>
