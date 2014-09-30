@@ -1,17 +1,15 @@
-<section id="main">
-	<div class="container">
-	<table id="roster" class="table">
-		<thead>
-			<tr>
-				<th>Child Name</th>
-				<th>Class</th>
-				<th>Parent Name</th>
-				<th>Phone</th>
-				<th>Work Phone</th>
-				<th>Committee</th>
-			</tr>			
-		</thead>
-		<tbody>
+<table id="roster" class="table">
+	<thead>
+		<tr>
+			<th>Child Name</th>
+			<th>Class</th>
+			<th>Committee</th>
+			<th>Parent Name</th>
+			<th>Phone</th>
+			<th>Work Phone</th>
+		</tr>			
+	</thead>
+	<tbody>
 <?php
 	foreach ( $blogusers as $user ) {
 		// print_r($user);
@@ -33,23 +31,25 @@
 		$partner = (!empty($meta['partner']['0']) ? $meta['partner']['0'] : '');
 		$class = (!empty($meta['class']['0']) ? '<h6>' . $meta['class']['0']. '</h6>': '');
 		$days = (!empty($meta['days']['0']) ? $meta['days']['0'] : '');
-		$child1 = (!empty($meta['child1']['0']) ? $meta['child1']['0'] : '');
-
+		$child_id = (!empty($meta['child1']['0']) ? $meta['child1']['0'] : '');
+		if (!empty($child_id)) {
+			$child = get_post( $child_id );
+			$child_name = $child->post_title;
+		} else {
+			$child_name = '';
+		}
 		echo <<< EOF
 		<tr>
-			<td>$child1</td>
+			<td>$child_name</td>
 			<td>$class</td>
+			<td>$committee</td>
 			<td>$first_name $last_name</td>
 			<td>$tel</td>
 			<td>$wktel</td>
-			<td>$committee</td>
 		</tr>
 EOF;
 	}
 ?>
 
-		</tbody>
-	</table>
-
-	</div>
-</section>
+	</tbody>
+</table>
