@@ -697,5 +697,8 @@ section {
   display:none;
 }
 
-  
-  
+.parent{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background:#fff;
+}
