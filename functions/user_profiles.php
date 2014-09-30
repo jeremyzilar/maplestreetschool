@@ -97,14 +97,17 @@ function my_show_extra_profile_fields( $user ) { ?>
     <tr>
       <th><label for="committees">Work Committee</label></th>
       <td>
-        
-        <?php $committee = get_the_author_meta('committee', $user->ID ); ?>
-        <ul>
-          <?php foreach (get_committees() as $key => $value): ?>
-            <li><input value="<?php echo $key; ?>" name="committee[]" <?php if (is_array($committee)) { if (in_array($key, $committee)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
-		      <?php endforeach ?>
-        </ul>
-
+        <select id="committee" name="committee">
+		      <?php 
+	      	$committee = get_the_author_meta('committee', $user->ID );
+	      	foreach (get_committees() as $key => $value): 
+      			if ($key == $committee) { ?>
+	    				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    			<?php } else { ?>
+	    				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+	    			<?php } ?>
+	      	<?php endforeach ?>
+        </select>
       </td>
     </tr>
 
