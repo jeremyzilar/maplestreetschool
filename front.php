@@ -5,7 +5,6 @@ Template Name: Homepage
 ?>
 
 <?php get_header(); ?>
-<!-- <?php echo 'mssdebug_front.php'; ?> -->
 
 
 <section id="main">
