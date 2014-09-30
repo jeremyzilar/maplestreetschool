@@ -14,6 +14,7 @@ include_once 'functions/roles.php';
 include_once 'functions/class-blog.php';
 include_once 'functions/coop-docs.php';
 include_once 'functions/user_profiles.php';
+include_once 'functions/students.php';
 
 
 // Hide WP Admin Bar
