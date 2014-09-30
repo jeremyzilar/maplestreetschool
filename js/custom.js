@@ -1,18 +1,7 @@
-// Our very special jQuery JSON fucntion call to Flickr, gets details
-// of the most recent 20 images
-// _b is the big size (1024)
-// _t is the thumbnail
-// _s is the 75×75 pixels square
-// _m is the medium size
+(function($){
+  jQuery(document).ready(function() {
 
-
-
-// Look up the WordPress Transient API
-// http://stackoverflow.com/questions/5838623/including-twitter-flickr-api-calls-on-every-page-load-wordpress
-
-
-
-$(document).ready(function(){
+  $("#roster").tablesorter(); 
   
   function commaSeparateNumber(val){
     while (/(\d+)(\d{3})/.test(val.toString())){
@@ -297,3 +286,4 @@ $('.readMore').live('click', function(m) {
 });
 
 $('.readMore').click();
+})(jQuery);
