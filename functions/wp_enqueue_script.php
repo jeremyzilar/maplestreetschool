@@ -7,8 +7,6 @@ function scripts_styles() {
 	// Le JS
 
   wp_enqueue_script('timeago', get_template_directory_uri() . '/js/jquery.timeago.js', array( 'jquery' ), $q, true );
-  wp_enqueue_script('color', get_template_directory_uri() . '/js/jquery-color.js', array( 'jquery' ), $q, true );
-  wp_enqueue_script('masonry', get_template_directory_uri() . '/js/masonry.js', array( 'jquery' ), $q, true );
   wp_enqueue_script('cycle', get_template_directory_uri() . '/js/jquery.cycle.all.min.js', array( 'jquery' ), $q, true );
 
 
@@ -36,7 +34,6 @@ function scripts_styles() {
 	wp_enqueue_script('bootstrap-typeahead', get_template_directory_uri() . '/js/bootstrap/bootstrap-typeahead.js', array( 'jquery' ), $q, true );
 	wp_enqueue_script('bootstrap-image-gallery', get_template_directory_uri() . '/js/bootstrap-image-gallery.js', array( 'jquery' ), $q, true );
 	wp_enqueue_script('tablesorter', get_template_directory_uri() . '/js/jquery.tablesorter.min.js', array( 'jquery' ), $q, true );
-	wp_enqueue_script('login', get_template_directory_uri() . '/js/login.js', array( 'jquery' ), $q, true );
 	wp_enqueue_script('register', get_template_directory_uri() . '/js/register.js', array( 'jquery' ), $q, true );
 	wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), $q, true );
 
