@@ -16,7 +16,7 @@ register_post_type('student', array(
 'query_var' => true,
 'exclude_from_search' => true,
 'supports' => array('title','thumbnail'),
-'taxonomies' => array('classes'),
+'taxonomies' => array(''),
 'labels' => array (
   'name' => 'Students',
   'singular_name' => 'Student',
