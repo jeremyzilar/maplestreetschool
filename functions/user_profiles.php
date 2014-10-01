@@ -225,6 +225,7 @@ function get_students($key, $uid){
 
 	<table class="form-table">
 		<h3>Student Info</h3>
+
 		<!-- Class -->
 	  <tr>
 			<th><label for="class">Class</label></th>
@@ -244,34 +245,8 @@ function get_students($key, $uid){
   		  </select>
 			</td>
 		</tr>
-		
-    <!-- Day Types -->
-    <tr>
-      <th><label for="day_types">Day Types</label></th>
-      <td>
-      	<select id="day_types" name="day_types">
-		      <?php 
-	      	$day_type = get_the_author_meta('day_types', $uid );
-	      	foreach (get_day_types() as $key => $value): 
-      			if ($key == $day_type) { ?>
-	    				<option selected value="<?php echo $value; ?>"><?php echo $value; ?></option>
-	    			<?php } else { ?>
-	    				<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
-	    			<?php } ?>
-	      	<?php endforeach ?>
-        </select>
-      </td>			
-    </tr>
 
-		
-		<!-- Birthday -->
-	  <tr>
-			<th><label for="birthday">Birthday</label></th>
-			<td>
-				<input type="text" name="birthday" id="birthday" value="<?php echo esc_attr( get_the_author_meta( 'birthday', $uid ) ); ?>" class="regular-text" /><br />
-				<span class="description">mm/dd/yyyy</span>
-			</td>
-		</tr>
+
 		
 	</table>
 	

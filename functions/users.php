@@ -67,27 +67,47 @@ function student_info_add() {
 function student_info( $post )
 {
 	$values = get_post_custom( $post->ID );
+	$classroom = isset( $values['classroom'] ) ? esc_attr( $values['classroom'][0] ) : '';
 	$birthday = isset( $values['birthday'] ) ? esc_attr( $values['birthday'][0] ) : '';
 	$days = isset( $values['days'] ) ? unserialize($values['days'][0]) : '';
 	$day_type = isset( $values['day_type'] ) ? esc_attr( $values['day_type'][0] ) : '';
 	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 	?>
 	<style type="text/css" media="screen">
-	  #birthday_box{}
-	  #birthday_box label,
-	  #birthday_box input,
-	  #birthday_box small{}
-	  #birthday_box label{
+	  #classroom_box{}
+	  #classroom_box label,
+	  #classroom_box input,
+	  #classroom_box small{}
+	  #classroom_box label{
 	    padding:0 2px;
 	  }
     #birthday{
       width:100%;
     }
-    #birthday_box small{
+    #classroom_box small{
       padding:0 3px;
       color:#999;
     }
 	</style>
+
+	<div id="classroom_box">
+  	<p>
+  		<label for="classroom">Classroom</label><br />
+  		<select name="classroom" id="classroom">
+		    <?php 
+		    $classes = get_classes();
+		    foreach ($classes as $key => $value):
+		    	if ($value == $classroom) { ?>
+		    		<option selected value="<?php echo $value; ?>"><?php echo $value; ?></option>
+		    	<?php } else { ?>
+		    		<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+		    	<?php }
+		    ?>
+	      <?php endforeach ?>
+		  </select>
+  	</p>
+	</div><!-- #birthday_box -->
+
 	<div id="birthday_box">
   	<p>
   		<label for="birthday">Birthday</label><br />
@@ -141,7 +161,9 @@ function cd_meta_box_save( $post_id )
 			'href' => array() // and those anchords can only have href attribute
 		)
 	);
-	
+	if( isset( $_POST['classroom'] ) )
+		update_post_meta( $post_id, 'classroom', wp_kses( $_POST['classroom'], $allowed ) );
+
 	if( isset( $_POST['birthday'] ) )
 		update_post_meta( $post_id, 'birthday', wp_kses( $_POST['birthday'], $allowed ) );
 

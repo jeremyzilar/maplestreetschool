@@ -34,9 +34,9 @@ function get_weekdays(){
 
 function get_day_types(){
   $day_types = array(
-    'full'=>'Full',
-    'am'=>'AM',
-    'pm'=>'PM'
+    'full'=>'Full Day',
+    'am'=>'Mornings',
+    'pm'=>'Afternoons'
   );
   return $day_types;
 }
