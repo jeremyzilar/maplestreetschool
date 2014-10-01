@@ -101,15 +101,14 @@
     // });
     
   }
-    
-})(jQuery);
 
-$(document).ready(function () {
-  $("#adduser").formToWizard();
-  $("#registerBox #steps").fadeIn();
-  $("#registerBox form").fadeIn('fast');
-  
-});
+  $(document).ready(function () {
+    $("#adduser").formToWizard();
+    $("#registerBox #steps").fadeIn();
+    $("#registerBox form").fadeIn('fast');
+
+
+
 
 
 
@@ -343,4 +342,5 @@ $('#adduser input, #adduser select, #adduser .checkbox input').blur(function() {
 
 
 
-
+  });    
+})(jQuery);
