@@ -31,6 +31,7 @@ function get_families(){
 	  while ($student_query->have_posts()) : $student_query->the_post();
 	  	$student_id = get_the_ID();
 	  	$families[$n]['child_name'] = get_the_title();
+
 	  	$families[$n]['birthday'] = get_post_meta( $student_id, 'birthday', true);
 	  	$birthday = new DateTime(get_post_meta( $student_id, 'birthday', true));
 			$interval = $birthday->diff(new DateTime);
@@ -38,6 +39,9 @@ function get_families(){
 			$mon = $interval->m;
 			$day = $interval->d;
 			$families[$n]['age'] =  $years . ' years, ' . $mon . ' months, ' . $day . ' days';
+			$families[$n]['days'] = implode(', ', get_post_meta( $student_id, 'days', true));
+			$families[$n]['day_type'] = get_post_meta( $student_id, 'day_type', true);
+			// $families[$n]['days'] = get_post_meta( $student_id, 'days', true);
 
 	  	$parents_data = get_user_by_meta_value($student_id);
 
@@ -47,7 +51,7 @@ function get_families(){
 				$meta = get_user_meta($user->ID);
 				$first_name = esc_html( $meta['first_name']['0'] );
 				$last_name = esc_html( $meta['last_name']['0'] );
-				$user_email = '<a href="mailto:'.esc_html( $user->user_email ).'">'.esc_html( $user->user_email ).'</a>';
+				$user_email = '<a href="mailto:'.esc_html( $user->user_email ).'">'.esc_html( $user->user_email ).'</a> /';
 				$tel = (!empty($meta['tel']['0']) ? $meta['tel']['0'] : '');
 				$wktel = (!empty($meta['wktel']['0']) ? $meta['wktel']['0'] : '');
 				$street_address = (!empty($meta['street_address']['0']) ? $meta['street_address']['0'] : '');

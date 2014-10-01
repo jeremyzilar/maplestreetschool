@@ -100,7 +100,7 @@ function student_info( $post )
 		<label for="days">Days</label><br />
     <ul>
       <?php foreach (get_weekdays() as $key => $value): ?>
-        <li><input value="<?php echo $key; ?>" name="days[]" <?php if (is_array($days)) { if (in_array($key, $days)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
+        <li><input value="<?php echo $value; ?>" name="days[]" <?php if (is_array($days)) { if (in_array($value, $days)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
       <?php endforeach ?>
     </ul>
 	</div><!-- #days_box -->
@@ -109,12 +109,11 @@ function student_info( $post )
 		<label for="day_type">Day Type</label><br />
   	<select id="day_type" name="day_type">
       <?php 
-      print_r($day_type);
     	foreach (get_day_types() as $key => $value): 
-  			if ($key == $day_type) { ?>
-  				<option selected value="<?php echo $key; ?>"><?php echo $value; ?></option>
+  			if ($value == $day_type) { ?>
+  				<option selected value="<?php echo $value; ?>"><?php echo $value; ?></option>
   			<?php } else { ?>
-  				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+  				<option value="<?php echo $value; ?>"><?php echo $value; ?></option>
   			<?php } ?>
     	<?php endforeach ?>
     </select>
