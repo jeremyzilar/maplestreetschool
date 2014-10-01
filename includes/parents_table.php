@@ -157,13 +157,13 @@ EOF;
 			$region = $parent['region'];
 			$postal_code = $parent['postal_code'];
 			$committee = $parent['committee'];
-			echo <<< EOF
-			<div class="parent">
-				<h5>$firstname $lastname</h5>
-				<p>$user_email $tel $wktel</p>
-				<p>$street_address $locality $region $postal_code</p>
-			</div>
-EOF;
+// 			echo <<< EOF
+// 			<div class="parent">
+// 				<h5>$firstname $lastname</h5>
+// 				<p>$user_email $tel $wktel</p>
+// 				<p>$street_address $locality $region $postal_code</p>
+// 			</div>
+// EOF;
 		}
 		
 		echo <<< EOF
