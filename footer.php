@@ -48,7 +48,8 @@
 			
 			<div class="row">
 			  <div class="span12 location">
-			    <p>© 2012 The Maple Street School &nbsp;21 Lincoln Rd. Brooklyn, NY, 11225 U.S.A. &nbsp;&nbsp;info@maplestreetsschool.org &nbsp;718-282-4345</p>
+          <?php $curYear = date('Y'); ?>
+			    <p>© <?php echo $curYear; ?> The Maple Street School &nbsp;21 Lincoln Rd. Brooklyn, NY, 11225 U.S.A. &nbsp;&nbsp;info@maplestreetsschool.org &nbsp;718-282-4345</p>
 			  </div>
 	    </div><!-- .row -->
 	  </div>
