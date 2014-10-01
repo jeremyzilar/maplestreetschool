@@ -30,10 +30,16 @@ function get_families(){
 	if( $student_query->have_posts() ) {
 	  while ($student_query->have_posts()) : $student_query->the_post();
 	  	$student_id = get_the_ID();
-	  	$parents_data = get_user_by_meta_value($student_id);
 	  	$families[$n]['child_name'] = get_the_title();
-			// $families['class'] = $class;
-			// $families['days'] = $days;
+	  	$families[$n]['birthday'] = get_post_meta( $student_id, 'birthday', true);
+	  	$birthday = new DateTime(get_post_meta( $student_id, 'birthday', true));
+			$interval = $birthday->diff(new DateTime);
+			$years = $interval->y;
+			$mon = $interval->m;
+			$day = $interval->d;
+			$families[$n]['age'] =  $years . ' years, ' . $mon . ' months, ' . $day . ' days';
+
+	  	$parents_data = get_user_by_meta_value($student_id);
 
 	  	$i=0;
 			$parent = array();
@@ -77,13 +83,15 @@ function show_families(){
 	$families = get_families();
 	$i = 0;
 	foreach ($families as $family) {
-		// print_r($family);
+		print_r($family);
 		$child_name = $family['child_name'];
+		$birthday = $family['birthday'];
+		$age = $family['age'];
 		echo <<< EOF
 		<div class="row family">
 			<div class="span12">
 				<h6>CLASS</h6>
-				<h3>$child_name</h3>
+				<h3>$child_name <small title="$birthday">$age</small></h3>
 EOF;
 		
 		foreach ($family['parents'] as $parent) {

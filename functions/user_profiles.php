@@ -245,19 +245,6 @@ function get_students($key, $uid){
 			</td>
 		</tr>
 		
-    <!-- Days -->
-    <tr>
-      <th><label for="days">Days</label></th>
-      <td>
-        <?php $days = get_the_author_meta('days', $uid ); ?>
-        <ul>
-          <?php foreach (get_weekdays() as $key => $value): ?>
-            <li><input value="<?php echo $key; ?>" name="days[]" <?php if (is_array($days)) { if (in_array($key, $days)) { ?>checked="checked"<?php } }?> type="checkbox" /> <?php echo $value; ?></li>
-		      <?php endforeach ?>
-        </ul>
-      </td>			
-    </tr>
-
     <!-- Day Types -->
     <tr>
       <th><label for="day_types">Day Types</label></th>
