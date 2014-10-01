@@ -38,7 +38,7 @@
         <ul class="nav pull-right">
           <li><a class="login" target="new" href="#">Log in</a></li>
           <?php if (get_option('users_can_register')){
-            echo '<li><a class="register" href="./?page_id=16">Register</a></li>';
+            //echo '<li><a class="register" href="./?page_id=16">Register</a></li>';
           }?>
         </ul>
         
