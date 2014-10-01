@@ -103,7 +103,7 @@ if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
  return $post_id;
 }
 
-register_post_type('classrooms', array(	'label' => 'Classrooms','description' => 'The Classrooms of Maple Street','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'page','hierarchical' => true,'query_var' => true,'has_archive' => true,'supports' => array('title','editor'),'labels' => array (
+register_post_type('classrooms', array(	'label' => 'Classrooms','description' => 'The Classrooms of Maple Street','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'page','hierarchical' => true,'query_var' => true,'has_archive' => true,'supports' => array('title','thumbnail'),'labels' => array (
   'name' => 'Classrooms',
   'singular_name' => 'classroom',
   'menu_name' => 'Classrooms',
