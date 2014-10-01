@@ -32,6 +32,7 @@ function get_families(){
 	  	$student_id = get_the_ID();
 	  	$families[$n]['child_name'] = get_the_title();
 
+	  	$families[$n]['image'] = get_the_post_thumbnail( $student_id, 'large' );
 	  	$families[$n]['classroom'] = get_post_meta( $student_id, 'classroom', true);
 	  	$families[$n]['birthday'] = get_post_meta( $student_id, 'birthday', true);
 	  	$birthday = new DateTime(get_post_meta( $student_id, 'birthday', true));
@@ -90,6 +91,7 @@ function show_families(){
 	foreach ($families as $family) {
 		// print_r($family);
 		$child_name = $family['child_name'];
+		$image = $family['image'];
 		$classroom = $family['classroom'];
 		$birthday = $family['birthday'];
 		$age = $family['age'];
@@ -97,7 +99,10 @@ function show_families(){
 		$day_type = $family['day_type'];
 		echo <<< EOF
 		<div class="row family">
-			<div class="span12">
+			<div class="span3">
+				$image
+			</div>
+			<div class="span9">
 				<h6>$classroom</h6>
 				<h3>$child_name <small title="$birthday">$age</small></h3>
 				<p class="days">$day_type / $days</p>
