@@ -64,11 +64,11 @@ Template Name: Donations & Annual Appeal
 	  <div class="row">
       <div class="span9">
         <div class="video">
-          <iframe width="680" height="383" src="<?php echo $donate_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+          <iframe width="680" height="383" src="http://www.youtube.com/embed/<?php echo $donate_video_url; ?>" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-    
+
     <?php }
     ?>
 
