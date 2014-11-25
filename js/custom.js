@@ -31,8 +31,8 @@ $('.login').toggle( function(){
   var donate_total = $('.donate_total').text();
   $('.donate_total').html(commaSeparateNumber(donate_total));
   
-  
-  var message = "We love our wonderful preschool and want to share two amazing videos with you to show you why it's such a special place. \n\n'Reconnecting with our Roots' shows the incredible history of the school. 'Little Friends Talk Money' features the students with their own (often amusing!) thoughts on personal finance. \n\nBoth videos were made to support Maple Street School's Little Friends Campaign.  Please take a moment to watch them and make a donation.  Every dollar raised goes to support tuition assistance, ensuring that Maple Street School remains an affordable preschool for families from all walks of life.\n\nDonate today: http://maplestreetschool.org/donations/\n\n";
+  var message = "We love our wonderful preschool and want to share an amazing video with you to show you why it's such a special place. \n\nThis video was made to support Maple Street School's Little Friends Campaign.  Please take a moment to watch it and make a donation. \n\nEvery dollar raised goes to support tuition assistance, ensuring that Maple Street School remains an affordable preschool for families from all walks of life. \n\nDonate today: http://maplestreetschool.org/donations/\n\n";
+
   $("#giving_form .giving_message").html(message);
   $("#giving_form").validate({
     submitHandler: function(form) {

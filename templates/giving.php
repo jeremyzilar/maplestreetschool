@@ -16,6 +16,8 @@ Template Name: Donations & Annual Appeal
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               
               <?php
+                $donate_video_url = get_post_meta($post->ID, 'donate_video_url', true);
+                $donate_email = get_post_meta($post->ID, 'donate_email', true);
                 $donate_num = get_post_meta($post->ID, 'donate_num', true);
                 $donate_amt = get_post_meta($post->ID, 'donate_amt', true);
                 $donate_total = get_post_meta($post->ID, 'donate_total', true);
@@ -56,14 +58,20 @@ Template Name: Donations & Annual Appeal
   	  </div>
 	  </div><!-- #donateCardWrap -->
 
-	  
+	  <?php 
+      if (!empty($donate_video_url)) { ?>
+        
 	  <div class="row">
-	   <div class="span9">
-	     <div class="video">
-	       <iframe width="680" height="383" src="//www.youtube.com/embed/4BpqesgJXCE" frameborder="0" allowfullscreen></iframe>
-	       <span class="caption">Video by: Aleksei Stevens</span>
-	     </div>
-	   </div>
+      <div class="span9">
+        <div class="video">
+          <iframe width="680" height="383" src="<?php echo $donate_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <?php }
+    ?>
+
   </div>
 </section>
 
