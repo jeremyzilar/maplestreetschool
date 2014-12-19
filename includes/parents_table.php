@@ -29,7 +29,14 @@ function get_families(){
 			$families[$n]['day_type'] = get_post_meta( $student_id, 'day_type', true);
 			// $families[$n]['days'] = get_post_meta( $student_id, 'days', true);
 
-	  	$parents_data = get_user_by_meta_value($student_id);
+	  	$parents_data = get_user_by_meta_value($student_id, 'child1');
+	  	
+	  	// $child2 = get_user_by_meta_value($student_id, $meta_key = 'child2');
+	  	// $child3 = get_user_by_meta_value($student_id, $meta_key = 'child3');
+	  	// $child4 = get_user_by_meta_value($student_id, $meta_key = 'child4');
+	  	// print_r($child2);
+	  	// array_merge($parents_data, $child2);
+	  	// print_r($parents_data);
 
 	  	$i=0;
 			$parent = array();
@@ -37,8 +44,8 @@ function get_families(){
 				$meta = get_user_meta($user->ID);
 				$first_name = esc_html( $meta['first_name']['0'] );
 				$last_name = esc_html( $meta['last_name']['0'] );
-				$user_email = '<a href="mailto:'.esc_html( $user->user_email ).'">'.esc_html( $user->user_email ).'</a> /';
-				$tel = (!empty($meta['tel']['0']) ? $meta['tel']['0'] : '');
+				$user_email = '<a href="mailto:'.esc_html( $user->user_email ).'">'.esc_html( $user->user_email ).'</a>';
+				$tel = (!empty($meta['tel']['0']) ? '/ ' . $meta['tel']['0'] : '');
 				$wktel = (!empty($meta['wktel']['0']) ? $meta['wktel']['0'] : '');
 				$street_address = (!empty($meta['street_address']['0']) ? $meta['street_address']['0'] : '');
 				$locality = (!empty($meta['locality']['0']) ? $meta['locality']['0'] : '');
@@ -89,7 +96,7 @@ function show_family_cards(){
 			<div class="span9">
 				<h6>$classroom</h6>
 				<h3>$child_name <small title="$birthday">$age</small></h3>
-				<p class="days">$day_type / $days</p>
+				<p class="days"><strong>$day_type</strong> / $days</p>
 EOF;
 		
 		foreach ($family['parents'] as $parent) {

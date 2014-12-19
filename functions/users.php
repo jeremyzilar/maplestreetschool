@@ -2,9 +2,10 @@
 
 
 // Get the 'parent' by ID of the 'student' post_type
-function get_user_by_meta_value($student_id){
+function get_user_by_meta_value($student_id, $meta_key){
   $args = array(
-    'meta_key' => 'child1',
+    'meta_key' => $meta_key,
+    // 'meta_key' => array('child1','child2','child3','child4'),
     'meta_value' => $student_id,
     'meta_compare' => '='
   );
